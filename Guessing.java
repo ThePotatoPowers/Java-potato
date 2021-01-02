@@ -15,14 +15,22 @@ public class Guessing {
             int number = (int)(Math.random() * 21);  // 0 to 20
 
             while (incorrect == 1) {
-                String guess = scan.nextLine();
-                int bruhguess = Integer.parseInt(guess);
-                if (bruhguess == number) {
-                    System.out.println("Wow, you got it! Good job!");
-                    restart();
+                try {
+                    String guess = scan.nextLine();
+                    int bruhguess = Integer.parseInt(guess);
+                    if (bruhguess == number) {
+                        System.out.println("Wow, you got it! Good job!");
+                        restart();
+                    }
+                    else {
+                        System.out.println("Sorry! Keep trying!"); 
+                    }
                 }
-                else {
-                    System.out.println("Sorry! Keep trying!"); 
+                catch(Exception e) {
+                    System.out.println("Not a number, please try again");
+                }
+                finally {
+                    incorrect = 1;
                 }
             }
         }
